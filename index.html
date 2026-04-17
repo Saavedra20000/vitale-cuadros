@@ -923,7 +923,7 @@
         <strong id="cartTotal">$ 0</strong>
       </div>
       <div class="footer-actions">
-        <button class="btn btn-whatsapp" id="whatsappBtn">Hacer pedido por WhatsApp</button>
+        <button class="btn btn-whatsapp" id="whatsappBtn">Consultar por WhatsApp</button>
         <button class="btn btn-clear" id="clearCartBtn">Vaciar carrito</button>
       </div>
     </div>
@@ -984,20 +984,20 @@
             </div>
           </div>
 
-          <div class="contact-box">
-            <article class="contact-card">
-              <h3>Arte Criolla</h3>
-              <p>Obras originales y cuadros por encargo con una estética artística, rural y contemporánea.</p>
-            </article>
-            <article class="contact-card">
-              <h3>Consultas y pedidos</h3>
-              <p>WhatsApp: +54 9 2262 356005<br>Email: joavitale1@hotmail.com<br>Instagram: @joaquin.artecriolla</p>
-            </article>
-            <article class="contact-card">
-              <h3>Envíos y medidas</h3>
-              <p>Realizamos envíos y también tomamos pedidos con medidas personalizadas para adaptarse a tu espacio.</p>
-            </article>
-          </div>
+<div class="contact-box">
+  <article class="contact-card">
+    <h3Arte Criolla</h3>
+    <p>Obra original que celebra nuestra cultura y tradición rural a través de retratos detallados hechos a mano.</p>
+  </article>
+  <article class="contact-card">
+    <h3>Consultas y pedidos</h3>
+    <p>Email: joavitale1@hotmail.com<br>Instagram: @joaquin.artecriolla</p>
+  </article>
+  <article class="contact-card">
+    <h3>Medidas</h3>
+    <p>Disponible en tamaño A4 y también en formato personalizado a pedido.</p>
+  </article>
+</div>
         </div>
       </section>
     </section>
@@ -1039,7 +1039,7 @@
 
             <div class="detail-actions">
               <button class="btn btn-primary" id="detailAddToCart">Agregar al carrito</button>
-              <button class="btn btn-secondary" id="detailBuyNow">Pedir por WhatsApp</button>
+              <button class="btn btn-secondary" id="detailBuyNow">Consultar por WhatsApp</button>
             </div>
 
             <div class="detail-extra" id="detailExtra"></div>
@@ -1195,20 +1195,19 @@ const PAINTINGS = [
     }
 
     function getSizeNote(size) {
-      const extra = SIZE_PRICES[size] || 0;
-     if (size === "Personalizado") {
-    return "Podés escribir la medida deseada y luego la confirmás por WhatsApp.";
+  if (size === "Personalizado") {
+    return "Podés escribir la medida deseada y luego la confirmás por mensaje.";
   }
   return "Consultá disponibilidad y valor según obra y tamaño.";
 }
 function getCurrentDetailMeasure() {
-      detailSizeSelect.value = "A4";
-      if (selectedSize === "Personalizado") {
-        const customValue = detailCustomSize.value.trim();
-        return customValue || "Personalizado (a confirmar)";
-      }
-      return selectedSize;
-    }
+  const selectedSize = detailSizeSelect.value;
+  if (selectedSize === "Personalizado") {
+    const customValue = detailCustomSize.value.trim();
+    return customValue || "Personalizado (a confirmar)";
+  }
+  return selectedSize;
+}
 
     function getCurrentDetailPrice() {
       const painting = getPaintingById(currentPaintingId);
@@ -1302,9 +1301,8 @@ setTimeout(() => {
             <p class="desc">${painting.summary}</p>
             <div class="card-actions">
               <div class="price">
-                <small>Desde</small>
-                ${formatCurrency(painting.basePrice)}
-              </div>
+  				${formatCurrency(painting.basePrice)}
+				</div>
               <button class="ghost-link" data-open-detail="${painting.id}">Ver cuadro</button>
             </div>
           </div>
@@ -1416,7 +1414,7 @@ setTimeout(() => {
       detailSizeSelect.value = size;
       detailSizeNote.textContent = getSizeNote(size);
       detailPrice.innerHTML = `<small>Precio final según medida</small>${formatCurrency(getPriceBySize(painting.basePrice, size))}`;
-      detailCustomGroup.classList.toggle("hidden", size !== "Tamaño personalizado");
+      detailCustomGroup.classList.toggle("hidden", size !== "Personalizado");
     }
 
     function openDetail(paintingId) {
@@ -1453,18 +1451,14 @@ setTimeout(() => {
 function buyCurrentDetailByWhatsApp() {
   const painting = getPaintingById(currentPaintingId);
   const selectedSize = getCurrentDetailMeasure();
-  const finalPrice = getCurrentDetailPrice();
 
   const lines = [
-    "Hola! Me gustaría hacer el siguiente pedido:",
+    "Hola! Me interesa esta obra:",
     "",
-    `1. ${painting.name}`,
-    `   Medida: ${selectedSize}`,
-    `   Precio: ${formatCurrency(finalPrice)}`,
+    `Obra: ${painting.name}`,
+    `Tamaño: ${selectedSize}`,
     "",
-    `Total del pedido: ${formatCurrency(finalPrice)}`,
-    "",
-    "Quedo a la espera de confirmación. Gracias!"
+    "Quisiera consultar disponibilidad y valor. Gracias!"
   ];
 
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
@@ -1553,21 +1547,17 @@ function buyCurrentDetailByWhatsApp() {
 
 function generateWhatsAppMessage() {
   const lines = [
-    "Hola! Me gustaría hacer el siguiente pedido:",
+    "Hola! Me interesan las siguientes obras:",
     ""
   ];
 
   cart.forEach((item, index) => {
     lines.push(`${index + 1}. ${item.name}`);
-    lines.push(`   Medida: ${item.measure}`);
-    lines.push(`   Precio: ${formatCurrency(item.price)}`);
+    lines.push(`   Tamaño: ${item.measure}`);
     lines.push("");
   });
 
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
-  lines.push(`Total del pedido: ${formatCurrency(total)}`);
-  lines.push("");
-  lines.push("Quedo a la espera de confirmación. Gracias!");
+  lines.push("Quisiera consultar disponibilidad y valor. Gracias!");
 
   return lines.join("\n");
 }
