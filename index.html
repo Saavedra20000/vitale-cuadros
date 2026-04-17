@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vitale Cuadros | Arte para tu hogar</title>
+  <title>Arte Criolla | Joaquin Vitale</title>
   <style>
     :root {
       --bg: #f7f1e8;
@@ -929,11 +929,11 @@
     </div>
   </aside>
 
-  <header class="header">
+ <header class="header">
     <div class="container header-inner">
       <div>
-        <a href="#inicio" class="brand" id="brandHomeLink">Vitale Cuadros</a>
-        <span class="brand-sub">Arte para tu hogar</span>
+        <a href="#inicio" class="brand" id="brandHomeLink">Arte Criolla</a>
+        <span class="brand-sub">Joaquin Vitale</span>
       </div>
       <nav class="nav">
         <a href="#catalogo" id="navCatalog">Catálogo</a>
@@ -941,17 +941,16 @@
       </nav>
     </div>
   </header>
-
+	
   <main>
     <section class="page active" id="catalogPage">
       <section class="hero" id="inicio">
         <div class="container hero-grid">
           <div class="hero-card">
             <span class="eyebrow">Arte original • Hecho a mano</span>
-            <h1 class="hero-title">Cuadros con alma para transformar tus espacios</h1>
+            <h1 class="hero-title">El sentimiento criollo, hecho arte.</h1>
             <p class="hero-text">
-              Retratos y escenas de inspiración rural, realizados a mano con una estética delicada, cálida y auténtica.
-              Cada obra puede verse en ambientes simulados tipo living, dormitorio y estudio para ayudar a imaginarla en el hogar.
+				Obra original que celebra nuestra cultura y tradición rural. Retratos detallados a mano para transformar tus espacios con la calidez de lo nuestro.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
@@ -982,18 +981,17 @@
           <div class="section-head">
             <div>
               <h2 class="section-title">Contacto</h2>
-              <p class="section-copy">Podés editar estos textos, tu WhatsApp, Instagram y mail directamente desde el HTML.</p>
             </div>
           </div>
 
           <div class="contact-box">
             <article class="contact-card">
-              <h3>Vitale Cuadros</h3>
+              <h3>Arte Criolla</h3>
               <p>Obras originales y cuadros por encargo con una estética artística, rural y contemporánea.</p>
             </article>
             <article class="contact-card">
               <h3>Consultas y pedidos</h3>
-              <p>WhatsApp: +54 9 2262 356005<br>Email: hola@vitalecuadros.com<br>Instagram: @vitalecuadros</p>
+              <p>WhatsApp: +54 9 2262 356005<br>Email: joavitale1@hotmail.com<br>Instagram: @joaquin.artecriolla</p>
             </article>
             <article class="contact-card">
               <h3>Envíos y medidas</h3>
@@ -1053,8 +1051,8 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 Vitale Cuadros — Sitio editable en un único archivo HTML</span>
-      <span>Catálogo con cuadros reales y ambientaciones visuales</span>
+     <span>© 2026 Arte Criolla</span>
+	 <span>Obra original inspirada en la cultura y tradición rural</span>
     </div>
   </footer>
 
@@ -1064,10 +1062,8 @@
     const WHATSAPP_NUMBER = "5492262356005";
 
 const SIZE_PRICES = {
-  "A5 (14,8 x 21 cm)": 0,
-  "A3 (29,7 x 42 cm)": 7000,
-  "A2 (42 x 59,4 cm)": 14000,
-  "Tamaño personalizado": 0
+  "A4": 0,
+  "Personalizado": 0
 };
 
 const PAINTINGS = [
@@ -1076,7 +1072,6 @@ const PAINTINGS = [
     name: "Vaca 102",
     description: "Dibujo a lápiz",
     category: "Retrato animal",
-    basePrice: 25000,
     summary: "Un retrato expresivo y delicado, ideal para espacios con carácter cálido, natural y auténtico.",
     details: "Obra realizada a lápiz con gran detalle en el pelaje, la mirada y las texturas. Perfecta para acompañar interiores neutros, madera clara y ambientes con inspiración rural elegante.",
     image: "images/vaca.jpeg",
@@ -1091,7 +1086,6 @@ const PAINTINGS = [
     name: "Caballo de perfil",
     description: "Dibujo a lápiz",
     category: "Campo y tradición",
-    basePrice: 26000,
     summary: "Una pieza serena y noble, pensada para quienes aman la estética ecuestre y el aire de campo.",
     details: "El perfil del caballo transmite calma y presencia. Funciona muy bien en estudios, livings sobrios y espacios donde se busca una obra con identidad tradicional.",
     image: "images/caballo2.png",
@@ -1106,7 +1100,6 @@ const PAINTINGS = [
     name: "Caballo frontal",
     description: "Dibujo a lápiz",
     category: "Retrato animal",
-    basePrice: 27000,
     summary: "Un retrato frontal con mucha presencia visual, ideal para convertirlo en protagonista del ambiente.",
     details: "La mirada, el volumen y la composición central generan una obra fuerte y elegante. Muy buena opción para livings, halls o paredes destacadas.",
     image: "images/caballo1.png",
@@ -1121,7 +1114,6 @@ const PAINTINGS = [
     name: "Caballos en el agua",
     description: "Dibujo a lápiz",
     category: "Campo y naturaleza",
-    basePrice: 28000,
     summary: "Una escena tranquila y natural que transmite conexión y armonía.",
     details: "Dos caballos bebiendo agua en una composición suave y equilibrada. Ideal para ambientes cálidos y relajados.",
     image: "images/caballos-agua.PNG",
@@ -1136,7 +1128,6 @@ const PAINTINGS = [
     name: "Ave sobre poste",
     description: "Dibujo a lápiz",
     category: "Naturaleza",
-    basePrice: 23000,
     summary: "Una pieza delicada con aire rural y minimalista.",
     details: "Un ave posada sobre madera rústica, perfecta para espacios tranquilos o decoraciones simples con carácter.",
     image: "images/pajarito-poste.PNG",
@@ -1183,12 +1174,8 @@ const PAINTINGS = [
     const toast = document.getElementById("toast");
 
     function formatCurrency(value) {
-      return new Intl.NumberFormat("es-AR", {
-        style: "currency",
-        currency: "ARS",
-        maximumFractionDigits: 0
-      }).format(value);
-    }
+  return "Consultar";
+}
 
     function getPriceBySize(basePrice, sizeLabel) {
       return basePrice + (SIZE_PRICES[sizeLabel] || 0);
@@ -1209,19 +1196,16 @@ const PAINTINGS = [
 
     function getSizeNote(size) {
       const extra = SIZE_PRICES[size] || 0;
-      if (size === "Tamaño personalizado") {
-        return "Podés escribir la medida deseada y luego la confirmás por WhatsApp.";
-      }
-      return extra === 0
-        ? "Este tamaño usa el precio base de la obra."
-        : `Este tamaño suma ${formatCurrency(extra)} sobre el precio base.`;
-    }
-
-    function getCurrentDetailMeasure() {
-      const selectedSize = detailSizeSelect.value;
-      if (selectedSize === "Tamaño personalizado") {
+     if (size === "Personalizado") {
+    return "Podés escribir la medida deseada y luego la confirmás por WhatsApp.";
+  }
+  return "Consultá disponibilidad y valor según obra y tamaño.";
+}
+function getCurrentDetailMeasure() {
+      detailSizeSelect.value = "A4";
+      if (selectedSize === "Personalizado") {
         const customValue = detailCustomSize.value.trim();
-        return customValue || "Tamaño personalizado (a confirmar)";
+        return customValue || "Personalizado (a confirmar)";
       }
       return selectedSize;
     }
@@ -1360,7 +1344,7 @@ setTimeout(() => {
         return `<option value="${size}">${label}</option>`;
       }).join("");
 
-      detailSizeSelect.value = "A5 (14,8 x 21 cm)";
+      detailSizeSelect.value = "A4";
       detailCustomSize.value = "";
       detailCustomGroup.classList.add("hidden");
       detailSizeNote.textContent = getSizeNote(detailSizeSelect.value);
@@ -1425,7 +1409,7 @@ setTimeout(() => {
     function updateDetailPriceAndMock() {
       const painting = getPaintingById(currentPaintingId);
       const size = detailSizeSelect.value;
-      detailCustomGroup.classList.toggle("hidden", size !== "Tamaño personalizado");
+      detailCustomGroup.classList.toggle("hidden", size !== "Personalizado");
       detailSizeNote.textContent = getSizeNote(size);
       detailPrice.innerHTML = `<small>Precio final según medida</small>${formatCurrency(getPriceBySize(painting.basePrice, size))}`;
       renderDetail(currentPaintingId);
